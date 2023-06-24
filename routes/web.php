@@ -12,7 +12,31 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//Home page
 Route::get('/', function () {
+    return view('pages/home');
+});
+//Show All Listings
+Route::get('/{property_type}/{listing_type}/', function () {
+    return view('welcome');
+});
+//Single Listing
+Route::get('/listing/{slug}/{id}', function () {
+    return view('welcome');
+});
+//User Login
+Route::get('/login', function () {
+    return view('welcome');
+});
+//User Register
+Route::get('/register', function () {
+    return view('welcome');
+});
+//User Saved Listing
+Route::get('/account/saved', function () {
+    return view('welcome');
+});
+//User show status
+Route::get('/account/show-status', function () {
     return view('welcome');
 });

@@ -12,6 +12,16 @@ Save Properties
 
 Request a showing
 
+# Users View
+
+-Home
+-Show All properties page
+-Sigle Property
+-Users Login Page
+-Users Register Page
+-Users Saved Properties
+-Users Showwing Status
+
 # Admins
 
 Create Agents
