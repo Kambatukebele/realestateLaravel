@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('pages/home');
 });
 //Show All Listings
-Route::get('/{property_type}/{listing_type}/', function () {
-    return view('welcome');
+Route::get('/{property_type}/{listing_type}/{city}', function () {
+    return view('pages/listings');
 });
 //Single Listing
 Route::get('/listing/{slug}/{id}', function () {
@@ -34,7 +34,7 @@ Route::get('/register', function () {
 });
 //User Saved Listing
 Route::get('/account/saved', function () {
-    return view('welcome');
+    return view('pages/saved-listings');
 });
 //User show status
 Route::get('/account/show-status', function () {

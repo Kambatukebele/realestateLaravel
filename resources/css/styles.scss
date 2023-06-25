@@ -3,5 +3,7 @@
 @use "./base/variables";
 @use "./vendors/bootstrap/scss/bootstrap.scss";
 @use "./layouts/main-layout.scss";
+@use "./layouts/account-layout.scss";
 @use "./components/header.scss";
 @use "./components/hero.scss";
+@use "./pages/listings";

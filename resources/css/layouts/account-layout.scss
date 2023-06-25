@@ -1,0 +1,100 @@
+.account-layout {
+    .listings-city {
+        position: relative;
+        background: #1b1b1b;
+        &__title {
+            font-weight: 700;
+            font-size: 4rem;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.8;
+        }
+    }
+    .content {
+        padding: 70px 0;
+    }
+    .account__menu {
+        h2 {
+            font-weight: 700;
+        }
+        a {
+            display: block;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+    }
+    .listings-properties {
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 5px;
+        }
+        &__item {
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        &__saved {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            width: 40px;
+            border-radius: 50%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background: white;
+            color: #1b1b1b;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            &:hover,
+            &--active {
+                background-color: #f56262;
+                color: white;
+            }
+        }
+        &__item-price {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        &__item-details {
+            font-size: 1.1rem;
+            color: #7c8791;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        &__item-address {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        &__item-line {
+            background: #7c8791;
+            height: 1px;
+        }
+        &__item-owner {
+            font-size: 0.9rem;
+            color: #7c8791;
+            text-align: center;
+            display: block;
+        }
+    }
+}
