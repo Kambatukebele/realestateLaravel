@@ -30,8 +30,8 @@
   <div class="listings-properties">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listings-properties__item">
+        @for ($i = 0; $i < 10; $i++) <div class="col-sm-6 col-lg-4 col-xl-3">
+          <a href="/listing/2123-grand-ave-miami-fl-33456/1" class="listings-properties__item">
             <img src="https://i.pinimg.com/originals/55/da/50/55da5058c849243292219f4da55322c3.jpg" alt="">
             <div class="listings-properties__saved">
               <i class="fa-solid fa-heart"></i>
@@ -42,9 +42,10 @@
             <span class="listings-properties__item-address">2135 Grand St, <br> Miami Beach, F 23456</span>
             <div class="listings-properties__item-line"></div>
             <span class="listings-properties__item-owner">KAMBA Realty</span>
-          </div>
-        </div>
+          </a>
       </div>
+      @endfor
     </div>
   </div>
-  @endsection
+</div>
+@endsection
