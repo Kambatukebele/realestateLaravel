@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ListingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,36 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/account', function () {
+    return view('pages/saved-listings');
+})->name('account');
+//User show status
+Route::get('/account/show-status', function () {
+    return view('pages/show-status');
+})->name('show-status');
 
+//Admin Root
+Route::group([
+    'prefix' => 'admin', 
+    'as' => 'admin.'
+], function(){
+    Route::get('/', function () {
+        return view('admin/dashboard');
+    })->name('dashboard');
+
+    Route::group([
+    'prefix' => 'listings', 
+    'as' => 'listings.'
+    ], function (){
+        Route::get('/', [ListingController::class, 'index'])->name('index');
+
+        Route::get('/create', [ListingController::class, 'create'])->name('create');
+
+        Route::get('/{id}/edit', [ListingController::class, 'edit'])->name('edit');
+
+        Route::post('/', [ListingController::class, 'store'])->name('store');
+    });
+});
 //Home page
 Route::get('/', function () {
     return view('pages/home');
@@ -35,23 +65,7 @@ Route::get('/{property_type}/{listing_type}/{city}', function () {
 //     return view('pages/register');
 // });
 //User Saved Listing
-Route::get('/account', function () {
-    return view('pages/saved-listings');
-})->name('account');
-//User show status
-Route::get('/account/show-status', function () {
-    return view('pages/show-status');
-})->name('show-status');
 
-//Admin Root
-Route::group([
-    'prefix' => 'admin', 
-    'as' => 'admin.'
-], function(){
-    Route::get('/', function () {
-        return view('admin/dashboard');
-    })->name('dashboard');
-});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
