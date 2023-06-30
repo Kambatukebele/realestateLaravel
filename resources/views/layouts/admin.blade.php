@@ -77,7 +77,7 @@
     </script>
     <div>
       <!-- #Left Sidebar ==================== -->
-      <div class="sidebar">
+      <div class="sidebar" style="background: #0b0b13">
         <div class="sidebar-inner">
           <!-- ### $Sidebar Header ### -->
           <div class="sidebar-logo">
@@ -91,8 +91,8 @@
                       </div>
                     </div>
                     <div class="peer peer-greed">
-                      <h5 class="lh-1 mB-0 logo-text">
-                        Adminator
+                      <h5 class="lh-1 mB-0 logo-text" style="color: red">
+                        Kamba Realty
                       </h5>
                     </div>
                   </div>
