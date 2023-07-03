@@ -13,7 +13,7 @@
           <div class="mb-3">
             <label class="form-label" for="address">Address</label>
             <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St"
-              value="{{ old('address') }}" required autofocus autocomplete="address">
+              value="{{ old('address') }}" autofocus autocomplete="address">
             @error('address')
             <div class="error-sub-text">
               {{ $message }}
@@ -23,7 +23,7 @@
           <div class="mb-3">
             <label class="form-label" for="address2">Address 2</label>
             <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor"
-              name="address2" value="{{ old('address2') }}" required autofocus autocomplete="address2">
+              name="address2" value="{{ old('address2') }}" autofocus autocomplete="address2">
             @error('address2')
             <div class="error-sub-text">
               {{ $message }}
@@ -33,7 +33,7 @@
           <div class="row">
             <div class="mb-3 col-md-6">
               <label class="form-label" for="city">City</label>
-              <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}" required autofocus
+              <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}" autofocus
                 autocomplete="city">
               @error('city')
               <div class="error-sub-text">
@@ -49,8 +49,8 @@
               </select>
             </div>
             <div class="mb-3 col-md-2"><label class="form-label" for="zipcode">Zip</label>
-              <input type="text" class="form-control" id="zipcode" name="zipcode" value="{{ old('zipcode') }}" required
-                autofocus autocomplete="zipcode">
+              <input type="text" class="form-control" id="zipcode" name="zipcode" value="{{ old('zipcode') }}" autofocus
+                autocomplete="zipcode">
               @error('zipcode')
               <div class="error-sub-text">
                 {{ $message }}
@@ -62,7 +62,7 @@
             <div class="mb-3 col-md-6">
               <label class="form-label" for="bedrooms">Bed Rooms</label>
               <input type="text" class="form-control" id="bedrooms" placeholder="4" name="bedrooms"
-                value="{{ old('bedrooms') }}" required autofocus autocomplete="bedrooms">
+                value="{{ old('bedrooms') }}" autofocus autocomplete="bedrooms">
               @error('bedrooms')
               <div class="error-sub-text">
                 {{ $message }}
@@ -74,7 +74,7 @@
             <div class="mb-3 col-md-6">
               <label class="form-label" for="bathrooms">Bath Room</label>
               <input type="text" class="form-control" id="bathrooms" placeholder="2" name="bathrooms"
-                value="{{ old('bathrooms') }}" required autofocus autocomplete="bathrooms">
+                value="{{ old('bathrooms') }}" autofocus autocomplete="bathrooms">
               @error('bathrooms')
               <div class="error-sub-text">
                 {{ $message }}
@@ -86,7 +86,7 @@
             <div class="mb-3 col-md-6">
               <label class="form-label" for="squarefootage">SQFT</label>
               <input type="text" class="form-control" id="squarefootage" placeholder="2000" name="squarefootage"
-                value="{{ old('squarefootage') }}" required autofocus autocomplete="squarefootage">
+                value="{{ old('squarefootage') }}" autofocus autocomplete="squarefootage">
               @error('squarefoot')
               <div class="error-sub-text">
                 {{ $message }}

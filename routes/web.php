@@ -39,7 +39,11 @@ Route::group([
 
         Route::get('/create', [ListingController::class, 'create'])->name('create');
 
-        Route::get('/{id}/edit', [ListingController::class, 'edit'])->name('edit');
+        Route::get('/{slug}/{id}/edit', [ListingController::class, 'edit'])->name('edit');
+        
+        Route::put('/{slug}/{id}', [ListingController::class, 'update'])->name('update');
+        
+        Route::get('/{slug}/{id}/delete', [ListingController::class, 'destroy'])->name('delete');
 
         Route::post('/', [ListingController::class, 'store'])->name('store');
     });

@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
     <title>@yield('page-title')</title>
+    @vite('resources/css/styles.scss')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
       #loader {
@@ -378,6 +379,15 @@
         </div>
         <!-- ### $App Screen Content ### -->
         <main class="main-content bgc-grey-100">
+          @if (session()->has("success"))
+          <div class="alert alert-success" role="alert">
+            {{ session("success") }}
+          </div>
+          @elseif (session()->has("error"))
+          <div class="alert alert-danger" role="alert">
+            {{ session("error") }}
+          </div>
+          @endif
           @yield('content')
         </main>
         <!-- ### $App Screen Footer ### -->
