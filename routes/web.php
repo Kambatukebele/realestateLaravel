@@ -25,6 +25,7 @@ Route::get('/account/show-status', function () {
 //Admin Root
 Route::group([
     'prefix' => 'admin', 
+    'middleware' => ['auth', 'is_admin'],
     'as' => 'admin.'
 ], function(){
     Route::get('/', function () {
