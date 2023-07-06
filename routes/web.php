@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ListingController;
+use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,15 @@ Route::group([
         Route::get('/{slug}/{id}/delete', [ListingController::class, 'destroy'])->name('delete');
 
         Route::post('/', [ListingController::class, 'store'])->name('store');
+
+        //Starting Listing Photos
+
+        Route::get('/{slug}/{id}/photos', [PhotoController::class, 'index'])->name('photos');
+        Route::get('/{slug}/{id}/photos/create', [PhotoController::class, 'create'])->name('photos.create');
+        Route::post('/{slug}/{id}/photos', [PhotoController::class, 'store'])->name('photos.store');
+        Route::get('/{slug}/{id}/photos/{photo_id}/edit', [PhotoController::class, 'edit'])->name('photos.edit');
+        Route::put('/{slug}/{id}/photos', [PhotoController::class, 'edit'])->name('photos.update');
+        Route::get('/{slug}/{id}/photos/{photo_id/delete}', [PhotoController::class, 'delete'])->name('photos.delete');
     });
 });
 //Home page
