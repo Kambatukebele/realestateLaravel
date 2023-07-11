@@ -2,8 +2,24 @@
 @section('page-title', 'Show Photos Listings')
 
 @section('content')
-<h1>Show Photos Listings</h1>
+
 <div class="mainContent">
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Show Photos Listings</h1>
+    </div>
+    <div class="col-md-2">
+      <a style="width: 100%; margin-top:1rem;color:black;"
+        href="{{ route('admin.listings.edit', ['slug'=>$slug, 'id'=>$id]) }}"
+        class="btn cur-p btn-primary text-white">Go Back to Edit page
+      </a>
+      <a style="width: 100%; margin-top:1rem;color:black;"
+        href="{{ route('admin.listings.photos.create', ['slug'=>$slug, 'id'=>$id]) }}"
+        class="btn cur-p btn-primary text-white">Add
+        new Photo
+      </a>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <div class="bgc-white bd bdrs-3 p-20 mB-20">
@@ -16,35 +32,47 @@
               <th scope="col">Id</th>
               <th scope="col">Photo</th>
               <th scope="col">Name</th>
+              <th scope="col">Status</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($listings as $listing)
+            @foreach ($photos as $photo)
             <tr>
-              <th scope="row">{{ $listing->id }}</th>
+              <th scope="row">{{ $photo->id }}</th>
               <td>
-                <a href="{{ route('admin.listings.edit', ['slug' => $listing->slug, 'id' => $listing->id]) }}">
-                  {{ $listing->address }}, <br>{{ $listing->address2 }}, {{ $listing->state }},{{ $listing->zipcode }}
-                </a>
+                <img src="/img/{{ $photo->name}}" alt="" style="width:100px">
               </td>
               <td>
-                @if ($listing->status == 'published' )
+                {{ $photo->name }}
+
+              </td>
+              <td>
+                @if ($photo->featured)
                 <div class="btn cur-p btn-success" style="width: 100px; font-size:.8rem">
-                  {{ $listing->status }}
+                  Featured Image
                 </div>
                 @else
-                <div class="btn cur-p btn-warning" style="width: 100px; font-size:.8rem">
-                  {{ $listing->status }}
-                </div>
-                @endif
 
+                @endif
+              </td>
+              <td>
+                <a style="width: 100%; margin-top:1rem;color:black;"
+                  href="{{ route('admin.listings.photos.featured', ['slug'=>$slug, 'id'=>$id, 'photo_id' => $photo->id]) }}"
+                  onclick="return confirm('Did you save your updates?')" class="btn cur-p btn-outline-success"><i
+                    class="fa-solid fa-star"></i> Make Featured
+                </a>
+                <a style="width: 100%; margin-top:1rem;"
+                  href="{{ route('admin.listings.photos.delete', ['slug'=>$slug, 'id'=>$id, 'photo_id' => $photo->id]) }}"
+                  onclick="return confirm('Are you sure you want to delete this photo?')"
+                  class="btn btn-danger btn-color">Delete
+                </a>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
-        {{ $listings->links() }}
+        {{ $photos->links() }}
       </div>
     </div>
   </div>

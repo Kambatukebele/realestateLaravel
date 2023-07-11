@@ -56,7 +56,8 @@ Route::group([
         Route::post('/{slug}/{id}/photos', [PhotoController::class, 'store'])->name('photos.store');
         Route::get('/{slug}/{id}/photos/{photo_id}/edit', [PhotoController::class, 'edit'])->name('photos.edit');
         Route::put('/{slug}/{id}/photos', [PhotoController::class, 'edit'])->name('photos.update');
-        Route::get('/{slug}/{id}/photos/{photo_id/delete}', [PhotoController::class, 'delete'])->name('photos.delete');
+        Route::get('/{slug}/{id}/photos/{photo_id}/delete', [PhotoController::class, 'destroy'])->name('photos.delete');
+        Route::get('/{slug}/{id}/photos/{photo_id}/featured', [PhotoController::class, 'featured'])->name('photos.featured');
     });
 });
 //Home page
@@ -64,9 +65,7 @@ Route::get('/', function () {
     return view('pages/home');
 });
 //Single Listing
-Route::get('/listing/{slug}/{id}', function () {
-    return view('pages/single-listing');
-});
+ Route::get('/listing/{slug}/{id}', [\App\Http\Controllers\Front\ListingController::class, 'show'])->name('frontlisting.show');
 //Show All Listings
 Route::get('/{property_type}/{listing_type}/{city}', function () {
     return view('pages/listings');
