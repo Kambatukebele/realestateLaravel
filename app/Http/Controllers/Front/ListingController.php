@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Listing;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -37,9 +38,19 @@ class ListingController extends Controller
      */
     public function show($slug, $id)
     {        
-        $listing = Listing::where(['id'=> $id, 'slug' => $slug])->first();
-        return $listing; 
-        return view('pages/single-listing', ['listing' => $listing]);
+        $listing = Listing::where([
+            'id'=> $id,
+            'slug' => $slug
+        ])->first();
+        $photos = Photo::where([
+            'listing_id' => $id,
+        ])->get();
+        
+        
+        return view('pages/single-listing', [
+            'listing' => $listing,
+             'photos' => $photos
+        ]);
     }
 
     /**
